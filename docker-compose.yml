@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  dynamo-db:
+    image: dwmkerr/dynamodb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/:/data
+    #command:
+      #/usr/bin/java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar
+      #java -jar DynamoDBLocal.jar
+      #java -jar DynamoDBLocal.jar -sharedDb -dbPath /tmp/data/
